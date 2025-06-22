@@ -3,5 +3,40 @@
 @tailwind utilities;
 
 body {
-  @apply bg-[#1a1a1a] text-white;
+  font-family: sans-serif;
+}
+
+/* IMPRESIÓN */
+@media print {
+  body {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+
+  .printable {
+    background-color: #000 !important;
+    color: #fff !important;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+  }
+
+  .logo {
+    filter: invert(100%);
+  }
+
+  .print-hidden,
+  button,
+  input {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+}
+
+/* Fuera de impresión */
+.print-only {
+  display: none;
 }
