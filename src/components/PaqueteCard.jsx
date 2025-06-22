@@ -1,19 +1,26 @@
-function PaqueteCard({ paquete }) {
+function PaqueteCard({ envio }) {
   return (
-    <div className="bg-gray-800 p-4 rounded-lg shadow-md w-full max-w-xl mt-6">
-      <h2 className="text-xl font-bold mb-2">Información del Envío</h2>
-      <p><strong>Remitente:</strong> {paquete.remitente}</p>
-      <p><strong>Destinatario:</strong> {paquete.destinatario}</p>
-      <p><strong>Origen:</strong> {paquete.origen}</p>
-      <p><strong>Destino:</strong> {paquete.destino}</p>
-      <p><strong>Estado actual:</strong> {paquete.estado}</p>
+    <div id="printable" className="mt-4 text-sm text-left">
+      <p><strong>Calle:</strong> {envio.direccion}</p>
+      <p><strong>Ciudad:</strong> {envio.estadoDireccion}</p>
+      <p><strong>Colonia:</strong> {envio.colonia}</p>
+      <p><strong>CP:</strong> {envio.cp}</p>
+      <p><strong>Destino:</strong> {envio.destino}</p>
+      <p><strong>Estado (Envío):</strong> {envio.estado}</p>
+      <p><strong>Estado (Dirección):</strong> {envio.estadoDireccion}</p>
+      <p><strong>Fecha para entrega:</strong> {envio.fecha}</p>
+      <p><strong>Guía:</strong> {envio.guia}</p>
+      <p><strong>Nombre:</strong> {envio.nombre}</p>
+      <p><strong>País:</strong> {envio.pais}</p>
+      <p><strong>Peso:</strong> {envio.peso}</p>
+      <p><strong>Receptor:</strong> {envio.receptor}</p>
 
-      <h3 className="mt-4 font-semibold">Historial:</h3>
-      <ul className="list-disc ml-5">
-        {paquete.historial?.map((item, idx) => (
-          <li key={idx}>{item.fecha} - {item.estado}</li>
-        ))}
-      </ul>
+      <button
+        onClick={() => window.print()}
+        className="mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Imprimir
+      </button>
     </div>
   );
 }
